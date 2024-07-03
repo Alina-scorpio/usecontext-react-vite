@@ -1,13 +1,14 @@
-import React, { useState, useContext } from 'react';
-import { TaskContext } from '../context/TaskContext';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addTask } from '../store/taskSlice';
 
 const AddTask = () => {
   const [item, setItem] = useState('');
-  const { addTask } = useContext(TaskContext);
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addTask(item);
+    dispatch(addTask(item));
     setItem('');
   };
 

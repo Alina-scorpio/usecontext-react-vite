@@ -1,10 +1,9 @@
-import React, { useContext } from 'react';
-import { TaskContext } from '../context/TaskContext';
+import React from 'react';
 import TaskItem from './TaskItem';
+import { useSelector } from 'react-redux';
 
 const TaskList = () => {
-  const { tasks } = useContext(TaskContext);
-
+  const tasks = useSelector(state => state.tasks.tasks);
   return (
     <div className='tasks'>
       <h2>My Tasks</h2>

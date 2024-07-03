@@ -1,13 +1,14 @@
-import React, { useContext } from 'react';
-import { TaskContext } from '../context/TaskContext';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { removeTask } from '../store/taskSlice';
 
 const TaskItem = ({ task }) => {
-  const { removeTask } = useContext(TaskContext);
 
+  const dispatch = useDispatch();
   return (
     <li>
       {task.item}
-      <button onClick={() => removeTask(task.id)}>Delete</button>
+      <button onClick={() => dispatch(removeTask(task.id))}>Delete</button>
     </li>
   );
 };
